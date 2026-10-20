@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: attention-please-support
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: TEAM_CHAT_ID
+        value: "0"
+      - key: PYTHON_VERSION
+        value: 3.12.10
